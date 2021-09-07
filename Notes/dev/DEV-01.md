@@ -25,3 +25,5 @@ Grab the 1920 x 1080 size screen at `https://www.glitchthegame.com/downloads/`
 + Added within build setting our current two scenes
 + created prefabs for safety
 
+Ran into an annoying issue where unity kept overwriting my scenes
+
