@@ -14,17 +14,34 @@ Sprite Renderer - displays the 2D sprite on screen
 + apply correct sorting layers 
 
 ### Steps (https://www.udemy.com/course/unitycourse/learn/lecture/12379078#questions/13619844)
-+ Create Animator Component 
++ Create a new Game Object called Lizard
++ Add Renderer Component to the Lizard Game Object (make sure you add the lizard sprite within `Sprite` property)
++ Add Animator Component to Lizard (Requires a Controller)
 + Create an Animations folder
-+ Create Animator Controller within the Animations folder `Right Click > Create > Animator Controller`
-+ Add Animator Controller to Lizard Game Object
++ Create Animator Controller within the Animations folder `Right Click > Create > Animator Controller` 
++ Rename the controller Lizard
+
+![](../images/DEV-06-B.png)
+
+Ignore the stuff in the green circle within the Animator Base Layer for now until we create our animation
+
++ Add the `Animator Controller` to the `Animator Component` of the Lizard Game Object
 + Create Animation by highlighting all your frames then `Right Click > Create > Animation`
-+ Drop your animation itno the Animator Base Layer
++ Call this Animation `Lizard Walk`
+
+![](../images/DEV-06-C.png)
+
 + To increase the speed of your animation, click on the 3 dots to indicate show sample rate
++ Tune the speed of the animation, update the samples property
++ Revisit the Animator Base Layer and drop your `Lizard Walk` animation into it (Green circle)
+
+![](../images/DEV-06-B.png)
+
++ play game to see animation
 
 ![](../images/DEV-06-A.png)
 
-+ Tune the speed of the animation, update the samples property
+
 
 ### Animating the Lizard
 
