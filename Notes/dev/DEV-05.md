@@ -13,11 +13,11 @@ After importing our sprite sheet we will be slicing it up
 
 ![](../images/DEV-05-B.png)
 
-+ Click on the Sprite Editor
++ Click on the Sprite Editor button under the sprite mode section
 
 ![](../images/DEV-05-C.png)
 
-+ Click on Slice and Keep the type setting on Automatic 
++ Click on Slice and Keep the type setting on Automatic (Other options like grid by cell size are an option too in the future)
 
 ![](../images/DEV-05-D.png)
 
