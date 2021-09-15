@@ -11,6 +11,8 @@
 
 ![](../images/DEV-10-B.png)
 
+Animation Events in DEV-11.md will resolve this in another way. Potentially improves performance as well.
+
 ### Scaling
 
 Initially I had the scale of the lizard to very large proportions in order to see it, but I scaled it down once I needed to spawn it progrmatically
