@@ -1,8 +1,5 @@
 ## DEV-12, Set Up A Defender Prefab
-### Tags: [animation, sprite size]
-
-
-
+### Tags: [animation]
 
 ## Set Up Cactus sprite sheets
 
