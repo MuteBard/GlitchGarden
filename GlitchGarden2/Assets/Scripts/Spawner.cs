@@ -6,7 +6,7 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] bool shouldSpawn = true;
     [SerializeField] GameObject entity;
-    [SerializeField] float spawnRateMin = 1;
+    [SerializeField] float spawnRateMin = 3;
     [SerializeField] float randomnessRange = 5;
 
     IEnumerator Start()
@@ -22,10 +22,6 @@ public class Spawner : MonoBehaviour
     }
 
     IEnumerator spawnLizard(){
-        Debug.Log(transform.position);
-        // (7.3, 2.9, 0.0)
-
-
         var newEnemy = Instantiate(entity, transform.position, transform.rotation);
         float spawnRate = Random.Range(spawnRateMin, spawnRateMin + randomnessRange);
         yield return new WaitForSeconds(spawnRate);
