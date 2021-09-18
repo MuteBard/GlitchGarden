@@ -18,7 +18,8 @@ public class Attacker : MonoBehaviour
     }
 
     void Move(){
-        transform.Translate(Vector2.left * currentSpeed * Time.deltaTime);
+        var self = gameObject.GetComponent<MovementOptions>();
+        self.LinearLeft(currentSpeed);
     }
 
     public void Perish(){

@@ -7,6 +7,7 @@ public class Defender : MonoBehaviour
     [SerializeField] GameObject projectile, gun;
 
     void Fire(){
-        var newProjectile = Instantiate(projectile, gun.transform.position, transform.rotation);
+        Vector2 flamePos = new Vector2(gun.transform.position.x, gun.transform.position.y + .8f);
+        var newProjectile = Instantiate(projectile, flamePos, transform.rotation);
     }
 }

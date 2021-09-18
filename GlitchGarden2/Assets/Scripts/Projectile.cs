@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    float currentSpeed = -2f;
+    float currentSpeed = 2f;
 
     void Update()
     {
@@ -16,7 +16,9 @@ public class Projectile : MonoBehaviour
     }
 
     void Move(){
-        transform.Translate(Vector2.left * currentSpeed * Time.deltaTime);
+        var self = gameObject.GetComponent<MovementOptions>();
+        self.SinusoidalRight(currentSpeed);
     }
-
 }
+
+
