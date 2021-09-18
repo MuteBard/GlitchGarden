@@ -5,8 +5,8 @@ using UnityEngine;
 public class Attacker : MonoBehaviour
 {
     float currentSpeed = 1f;
-    float hitStun = .5f;
-    [SerializeField] float hp = 100;
+    [SerializeField] float deathAnimationTime = 0;
+    [SerializeField] GameObject deathAnimation;
 
     void Update()
     {
@@ -21,31 +21,11 @@ public class Attacker : MonoBehaviour
         transform.Translate(Vector2.left * currentSpeed * Time.deltaTime);
     }
 
-    void OnTriggerEnter2D(Collider2D other){
-        Projectile projectile = other.gameObject.GetComponent<Projectile>();
-        if(projectile){
-            RecieveDamage(projectile);
-        } 
-    }
-
-    void RecieveDamage(Projectile projectile){
-        hp -= projectile.GetDamage();
-        StartCoroutine(ReactToDamage());
-        if(hp <= 0){
-            Perish();
-        }
-    }
-
-    IEnumerator ReactToDamage(){
-        Color originalColor = gameObject.GetComponent<Renderer>().material.color;
-        gameObject.GetComponent<Renderer>().material.color = Color.red;
-        transform.Translate(Vector2.left * 0f * Time.deltaTime);
-        yield return new WaitForSeconds(hitStun);
-        gameObject.GetComponent<Renderer>().material.color = originalColor;
-        transform.Translate(Vector2.left * currentSpeed * Time.deltaTime);
-    }
-
-    void Perish(){
+    public void Perish(){
+        Vector2 explosionPos = new Vector2(transform.position.x - 1.1f, transform.position.y);
+        var explosion = Instantiate(deathAnimation, explosionPos, transform.rotation);
+        explosion.GetComponent<Animator>().Play("Explosion");
+        Destroy(explosion, .6f);
         Destroy(gameObject);
     }
 }
