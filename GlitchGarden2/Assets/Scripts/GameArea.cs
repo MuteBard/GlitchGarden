@@ -18,7 +18,8 @@ public class GameArea : MonoBehaviour
     }
 
     private void spawnDefender(){
-        Vector2 mousePosition = mouse.GetMouseWorldPosition2D();
+        Vector2 mousePosition = mouse.GetGridPosition2D();
+        Debug.Log(mousePosition);
         Instantiate(defender, mousePosition, transform.rotation, parentContainer.transform);
     }
 }

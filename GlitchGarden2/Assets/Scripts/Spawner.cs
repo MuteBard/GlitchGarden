@@ -23,6 +23,4 @@ public class Spawner : MonoBehaviour
         float spawnRate = Random.Range(spawnRateMin, spawnRateMin + randomnessRange);
         yield return new WaitForSeconds(spawnRate);
     }
-
-    
 }

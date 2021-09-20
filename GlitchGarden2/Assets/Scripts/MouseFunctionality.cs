@@ -32,7 +32,17 @@ public class MouseFunctionality : MonoBehaviour
         return worldmMousePosition;
     }
 
-   
+    public Vector2 GetGridPosition2D(){
+        Vector2 worldmMousePosition = Camera.main.ScreenToWorldPoint(GetMousePosition2D());
+        Vector2 worldmMousePositionInt = new Vector2((int) Mathf.Round(worldmMousePosition.x), (int) Mathf.Round(worldmMousePosition.y));
+        return worldmMousePositionInt;
+    }
+
+    public Vector3 GetGridPosition3D(){
+        Vector3 worldmMousePosition = Camera.main.ScreenToWorldPoint(GetMousePosition3D());
+        Vector3 worldmMousePositionInt = new Vector3((int) Mathf.Round(worldmMousePosition.x), (int) Mathf.Round(worldmMousePosition.y), 0);
+        return worldmMousePosition;
+    }
 }
 
 // https://docs.unity3d.com/2021.2/Documentation/ScriptReference/Input.html

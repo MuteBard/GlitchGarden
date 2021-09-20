@@ -5,9 +5,10 @@ using UnityEngine;
 public class Stats : MonoBehaviour
 {
     [SerializeField] float hp = 1;
-    [SerializeField] float damage = 50;
+    [SerializeField] float attack = 50;
     [SerializeField] float defense = 1;
     [SerializeField] float resistance = 10;
+    [SerializeField] float speed = 1;
 
     Color originalColor;
 
@@ -23,7 +24,7 @@ public class Stats : MonoBehaviour
 
         Stats otherStats = other.gameObject.GetComponent<Stats>();
         Projectile iamProjectile = gameObject.GetComponent<Projectile>();
-        if(otherStats && !iamProjectile){
+        if(otherStats){
             RecieveDamage(otherStats);
         }
 
@@ -31,16 +32,16 @@ public class Stats : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void RecieveDamage(Stats stats){
-        StartCoroutine(ReactToDamageFromOther(stats));
+    private void RecieveDamage(Stats otherStats){
+        StartCoroutine(ReactToDamageFromOther(otherStats));
         if(hp <= 0){
              Perish();
         }
     }
-    private IEnumerator ReactToDamageFromOther(Stats stats){
+    private IEnumerator ReactToDamageFromOther(Stats otherStats){
         setColor(Color.red);
         yield return new WaitForSeconds(ResistanceTime());
-        hp -= stats.GetDamage() - defense;
+        hp -= otherStats.GetAttack() - defense;
         setColor(getOriginalColor());
     }
     private Color getOriginalColor(){
@@ -55,8 +56,14 @@ public class Stats : MonoBehaviour
     private float ResistanceTime(){
         return resistance / 25;
     }
-    public float GetDamage(){
-        return damage;
+    public float GetAttack(){
+        return attack;
+    }
+    public float GetDefense(){
+        return defense;
+    }
+    public float GetSpeed(){
+        return speed;
     }
     private void Perish(){
         Attacker attacker = gameObject.GetComponent<Attacker>();

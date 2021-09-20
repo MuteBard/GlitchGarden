@@ -8,6 +8,6 @@ public class Defender : MonoBehaviour
 
     void Fire(){
         Vector2 flamePos = new Vector2(gun.transform.position.x, gun.transform.position.y + .8f);
-        var newProjectile = Instantiate(projectile, flamePos, transform.rotation);
+        Instantiate(projectile, flamePos, transform.rotation);
     }
 }
