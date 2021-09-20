@@ -5,7 +5,6 @@ using UnityEngine;
 public class Attacker : MonoBehaviour
 {
     float currentSpeed = 1f;
-    [SerializeField] float deathAnimationTime = 0;
     [SerializeField] GameObject deathAnimation;
 
     void Update()

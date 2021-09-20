@@ -18,7 +18,6 @@ public class Projectile : MonoBehaviour
     void Move(){
         var self = gameObject.GetComponent<MovementOptions>();
         self.SinusoidalRight(currentSpeed);
-        // self.Pulsate();
     }
 }
 
