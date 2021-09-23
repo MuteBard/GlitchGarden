@@ -19,7 +19,9 @@ public class Attacker : MonoBehaviour
     void Move(){
         var self = gameObject.GetComponent<MovementOptions>();
         var stats = gameObject.GetComponent<Stats>();
-        self.LinearLeft(stats.GetSpeed());
+        if(currentSpeed > 0){
+            self.LinearLeft(stats.GetSpeed());
+        }
     }
 
     public void Perish(){

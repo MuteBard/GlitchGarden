@@ -22,9 +22,6 @@
 + Make sure the lizard has a speed of float 0 while jumping
 
 
-
-
-
 ![](../images/DEV-11-F.png)
 
 ## Adding an animation event for walk
