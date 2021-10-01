@@ -5,8 +5,10 @@ using UnityEngine.Tilemaps;
 
 public class GameArea : MonoBehaviour
 {
-    [SerializeField] GameObject defender;
+    // [SerializeField] GameObject defender;
     [SerializeField] GameObject parentContainer;
+    [SerializeField] int bankTotal = 100;
+    int currentCost = 1000000;
     MouseFunctionality mouse;
 
     void Start(){
@@ -19,8 +21,43 @@ public class GameArea : MonoBehaviour
 
     private void spawnDefender(){
         Vector2 mousePosition = mouse.GetGridPosition2D();
-        Debug.Log(mousePosition);
-        Instantiate(defender, mousePosition, transform.rotation, parentContainer.transform);
+        var newDefender = getDefender();
+        if(allowTransaction()){
+            Instantiate(newDefender, mousePosition, transform.rotation, parentContainer.transform);
+        }
+    }
+
+    private void getCostFromButton(Button button){
+       var stats = button.GetComponent<Stats>();
+       int cost = stats.GetCost();
+       currentCost = cost;
+    }
+
+    private void setBankTotal(int total){
+       bankTotal = total;
+    }
+
+    private bool allowTransaction(){
+        int result = bankTotal - currentCost;
+        if(result >= 0){
+            setBankTotal(result);
+            return true;
+        }else {
+            return false;
+        } 
+    }
+
+    private GameObject getDefender(){
+        GameObject defender;
+        var buttons = FindObjectsOfType<Button>();
+        foreach(Button button in buttons){
+            defender = button.getActiveDefender();
+            if(defender){
+                getCostFromButton(button);
+                return defender;
+            }
+        }
+        return null;
     }
 }
 

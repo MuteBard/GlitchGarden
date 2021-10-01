@@ -9,6 +9,7 @@ public class Stats : MonoBehaviour
     [SerializeField] float defense = 1;
     [SerializeField] float resistance = 10;
     [SerializeField] float speed = 1;
+    [SerializeField] int cost = 50;
 
     Color originalColor;
 
@@ -61,6 +62,12 @@ public class Stats : MonoBehaviour
     }
     public float GetDefense(){
         return defense;
+    }
+    public void SetCost(int newCost){
+        cost = newCost;
+    }
+    public int GetCost(){
+        return cost;
     }
     public float GetSpeed(){
         return speed;
