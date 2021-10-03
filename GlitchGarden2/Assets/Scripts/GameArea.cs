@@ -16,31 +16,35 @@ public class GameArea : MonoBehaviour
     }
 
     private void OnMouseDown(){
-        spawnDefender();
+        SpawnDefender();
     }
 
-    private void spawnDefender(){
+    private void SpawnDefender(){
         Vector2 mousePosition = mouse.GetGridPosition2D();
         var newDefender = getDefender();
-        if(allowTransaction()){
+        if(AllowTransaction()){
             Instantiate(newDefender, mousePosition, transform.rotation, parentContainer.transform);
         }
     }
 
-    private void getCostFromButton(Button button){
+    private void GetCostFromButton(Button button){
        var stats = button.GetComponent<Stats>();
        int cost = stats.GetCost();
        currentCost = cost;
     }
 
-    private void setBankTotal(int total){
+    private void SetBankTotal(int total){
        bankTotal = total;
     }
 
-    private bool allowTransaction(){
+    public string GetText(){
+       return bankTotal.ToString();
+    }
+
+    private bool AllowTransaction(){
         int result = bankTotal - currentCost;
         if(result >= 0){
-            setBankTotal(result);
+            SetBankTotal(result);
             return true;
         }else {
             return false;
@@ -53,7 +57,7 @@ public class GameArea : MonoBehaviour
         foreach(Button button in buttons){
             defender = button.getActiveDefender();
             if(defender){
-                getCostFromButton(button);
+                GetCostFromButton(button);
                 return defender;
             }
         }
